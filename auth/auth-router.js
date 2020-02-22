@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const Users = require("./users-model");
 const secrets = require("../config/secrets");
 
-router.post("/register", (req, res) => {
+router.post("/register", async (req, res) => {
   // implement registration
   if (!req.body || !req.body.password || !req.body.username) {
     res.status(400).json("Username and Password are required.");
@@ -24,7 +24,7 @@ router.post("/register", (req, res) => {
   }
 });
 
-router.post("/login", (req, res) => {
+router.post("/login", async (req, res) => {
   // implement login
   if (!req.body || !req.body.password || !req.body.username) {
     res.status(400).json("Username and Password are required.");
